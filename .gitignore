@@ -1,0 +1,5 @@
+remix-app/node_modules
+remix-app/build
+remix-app/.cache
+remix-app/public/build
+
