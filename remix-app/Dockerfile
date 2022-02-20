@@ -1,5 +1,6 @@
 FROM node:16-alpine
 WORKDIR /usr/server/app
+EXPOSE 3000
 
 COPY ./package.json ./package-lock.json ./
 RUN npm install
