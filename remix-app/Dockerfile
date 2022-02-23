@@ -1,5 +1,3 @@
-ARG airtableAPIKey
-ARG airtableBase
 FROM node:16-alpine
 WORKDIR /usr/server/app
 EXPOSE 3000
@@ -9,6 +7,8 @@ RUN npm install
 COPY ./ .
 RUN npm run build
 ENV NODE_ENV=production
-ENV AIRTABLE_API_KEY=${airtableAPIKey}
-ENV AIRTABLE_BASE=${airtableBase}
+ARG key
+ARG base
+ENV AIRTABLE_API_KEY=$key
+ENV AIRTABLE_BASE=$base
 CMD ["npm", "run" ,"start"]
