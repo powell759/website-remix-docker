@@ -1,15 +1,22 @@
 import {
   Links,
+  LinksFunction,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration
 } from "remix";
+import commonCssUrl from "~/styles/common.css";
+
 import type { MetaFunction } from "remix";
 
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: commonCssUrl }];
+};
+
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: "Maxwell" };
 };
 
 export default function App() {
@@ -26,6 +33,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <div className="bubble">made with: mittens on</div>
       </body>
     </html>
   );
