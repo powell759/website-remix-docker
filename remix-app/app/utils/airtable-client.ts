@@ -2,7 +2,7 @@ import Airtable, { Base } from "airtable";
 
 let airtableClient : Airtable;
 let blogBase : Base;
-console.log(process.env);
+
 airtableClient = new Airtable ({ apiKey: process.env.AIRTABLE_API_KEY});
 blogBase = airtableClient.base(process.env.AIRTABLE_BASE as string);
 
