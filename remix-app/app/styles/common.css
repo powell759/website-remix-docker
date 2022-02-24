@@ -1,3 +1,9 @@
+body {
+  image-rendering: pixelated;
+  background-image: url('/images/butt.gif');
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .page-container {
   position: relative;
   margin: auto;
