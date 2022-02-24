@@ -1,4 +1,7 @@
 import type { LinksFunction } from "remix";
+import type { LoaderFunction } from "remix";
+import { useLoaderData } from "remix";
+import { getPosts } from "~/utils/airtable-client";
 
 import stylesUrl from "~/styles/index.css";
 
@@ -6,7 +9,12 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
 };
 
+export let loader: LoaderFunction = async () => {
+  return await getPosts();
+};
+
 export default function Index() {
+  const posts = useLoaderData<any[]>();
   return (
     <div className="page-container">
       <div className="card">
@@ -26,8 +34,14 @@ export default function Index() {
         </p>
       </div>
       <div className="card">
-        <h2>🗞 Blog:</h2>
-        <p><a href="blog">This way</a></p>
+        <h2><a href="blog">🗞 Blog:</a></h2>
+        <p>
+          <ul>
+            {posts.map((entry) => {
+              return <li><a href={`blog#${entry.id}`}>{entry.title}</a></li>
+            })}
+          </ul>
+        </p>
       </div>
       <div className="card">
         <h2>🔨 What I'm Hacking on:</h2>

@@ -23,7 +23,8 @@ var getPosts = () => {
             posts.unshift({
               title: record.get('Title'),
               content: record.get('Content'),
-              date: record.get('Date')
+              date: record.get('Date'),
+              id: record.get('Id')
             });
         });
         resolve(posts);

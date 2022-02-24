@@ -2,8 +2,10 @@ import type { LinksFunction } from "remix";
 import type { LoaderFunction } from "remix";
 import { useLoaderData } from "remix";
 import { getPosts } from "~/utils/airtable-client";
-import stylesUrl from "~/styles/blog.css";
 import Markdown from 'markdown-to-jsx';
+
+import stylesUrl from "~/styles/blog.css";
+
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: stylesUrl }];
@@ -23,7 +25,7 @@ export default function Index() {
       </div>
       {posts.map((entry) => {
         return <div className="card">
-          <h2>{entry.title}</h2>
+          <h2 id={entry.id}>{entry.title}</h2>
           <h3>{entry.date}</h3>
           <p><Markdown>{entry.content}</Markdown></p>
         </div>
