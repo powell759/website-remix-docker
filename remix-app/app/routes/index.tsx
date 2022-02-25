@@ -47,10 +47,10 @@ export default function Index() {
         <h2>🔨 What I'm Hacking on:</h2>
         <p>
           <ul>
-            <li>Remix</li>
-            <li>NorthFlank</li>
-            <li>AirTable</li>
-            <li>Docker</li>
+            <li><a href="https://remix.run/">Remix</a></li>
+            <li><a href="https://northflank.com/">NorthFlank</a></li>
+            <li><a href="https://airtable.com/">AirTable</a></li>
+            <li><a href="https://www.docker.com/">Docker</a></li>
           </ul>
         </p>
       </div>
